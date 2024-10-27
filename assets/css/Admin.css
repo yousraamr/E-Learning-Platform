@@ -1,1 +1,183 @@
  
+
+/* Basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f7fa;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px;
+  background-color: #21252a;
+  color: #fff;
+  padding: 20px;
+}
+
+.brand h2 {
+  color: #ca2020;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  margin-bottom: 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* Main content area */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.create-user-btn {
+  padding: 10px 20px;
+  background-color:#ca2020;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.create-user-btn:hover {
+  background-color: #ca2020;
+}
+
+/* Add New User Form */
+.add-user-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.add-user-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.add-user-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  background-color:#ca2020;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.submit-btn:hover {
+  background-color: #ca2020;
+}
+
+/* User table */
+.user-table {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+table th {
+  color: #333;
+  font-weight: bold;
+}
+
+table td {
+  color: #666;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination p {
+  color: #666;
+}
+
+.page-controls button {
+  padding: 8px 12px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.page-controls button:hover {
+  background-color: #e6e6e6;
+}
+
+
+.add-user-form select,
+.add-user-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
