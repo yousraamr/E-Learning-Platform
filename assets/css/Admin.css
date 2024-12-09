@@ -1,0 +1,101 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Table Container */
+.user-table {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead {
+  background-color: #21252a;
+}
+
+table thead th {
+  color: #fff;
+  text-align: left;
+  padding: 15px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+table tbody tr {
+  transition: background-color 0.3s;
+}
+
+table tbody tr:hover {
+  background-color: #f4f7fa;
+}
+
+table tbody td {
+  padding: 15px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+/* Specific Container for Admin Table */
+.container {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Admin Table Styles */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.admin-table thead tr {
+  background-color: #21252a; /* Dark header background */
+  color: #fff; /* White text for headers */
+  font-weight: bold;
+}
+
+.admin-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+
