@@ -25,6 +25,16 @@ CREATE TABLE `users` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- Table structure for table `user_courses`
+CREATE TABLE `user_courses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `course_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `user_courses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- Table structure for table `usertype_pages` with `UserType` as ENUM
 CREATE TABLE `usertype_pages` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
