@@ -45,6 +45,26 @@ CREATE TABLE `usertype_pages` (
   CONSTRAINT `usertype_pages_ibfk_1` FOREIGN KEY (`PageID`) REFERENCES `pages` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `course_sections` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `course_name` VARCHAR(100) NOT NULL,
+    `section_name` VARCHAR(100) NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `course_name` (`course_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `uploads` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `file_name` VARCHAR(255) NOT NULL,
+    `uploaded_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `course_id` INT(11) NOT NULL,
+    `section_id` INT(11) NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`course_id`) REFERENCES `user_courses` (`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`section_id`) REFERENCES `course_sections` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 -- Insert data for user types
 INSERT INTO `usertypes` (`ID`, `Name`) VALUES
 (1, 'Admin'),
