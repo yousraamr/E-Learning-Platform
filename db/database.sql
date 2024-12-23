@@ -45,6 +45,7 @@ CREATE TABLE `usertype_pages` (
   CONSTRAINT `usertype_pages_ibfk_1` FOREIGN KEY (`PageID`) REFERENCES `pages` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
 CREATE TABLE `course_sections` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `course_name` VARCHAR(100) NOT NULL,
@@ -63,6 +64,42 @@ CREATE TABLE `uploads` (
     FOREIGN KEY (`course_id`) REFERENCES `user_courses` (`id`) ON DELETE CASCADE,
     FOREIGN KEY (`section_id`) REFERENCES `course_sections` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE IF NOT EXISTS quiz_questions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    question_text TEXT NOT NULL,
+    option_1 VARCHAR(255) NOT NULL,
+    option_2 VARCHAR(255) NOT NULL,
+    option_3 VARCHAR(255) NOT NULL,
+    option_4 VARCHAR(255) NOT NULL,
+    correct_option INT NOT NULL
+);
+
+CREATE TABLE `assignment_submissions` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `student_name` VARCHAR(255) NOT NULL,
+    `assignment_name` VARCHAR(255) NOT NULL,
+    `submitted_file` VARCHAR(255) NOT NULL,  -- Column to store the uploaded file path or name
+    `submission_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE `assignments` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT, -- Assignment ID
+    `assignment_name` VARCHAR(255) NOT NULL, -- Assignment Name
+    `instructor_name` VARCHAR(255) NOT NULL, -- Instructor Name
+    `file_name` VARCHAR(255) NOT NULL, -- Uploaded file name
+    `due_date` DATE NOT NULL, -- Due Date
+    `uploaded_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Timestamp of when the assignment was uploaded
+    PRIMARY KEY (`id`) -- Primary Key
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE student_scores (
+    id INT AUTO_INCREMENT PRIMARY KEY,         -- Unique identifier for each entry
+    student_name VARCHAR(100) NOT NULL,        -- Name of the student
+    score INT NOT NULL,                        -- Score of the student
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Timestamp of record creation
+);
 
 
 -- Insert data for user types
