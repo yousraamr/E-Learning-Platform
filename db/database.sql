@@ -84,6 +84,17 @@ CREATE TABLE `assignment_submissions` (
     `submission_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+ALTER TABLE `assignment_submissions`
+ADD COLUMN `assignment_id` INT NOT NULL AFTER `id`,
+ADD CONSTRAINT `fk_assignment_submission`
+FOREIGN KEY (`assignment_id`) REFERENCES `assignments` (`id`) ON DELETE CASCADE;
+
+ALTER TABLE `assignment_submissions`
+ADD COLUMN `user_id` INT NOT NULL AFTER `assignment_id`,
+ADD CONSTRAINT `fk_assignment_submission_user`
+FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE CASCADE;
+
+
 CREATE TABLE `assignments` (
     `id` INT(11) NOT NULL AUTO_INCREMENT, -- Assignment ID
     `assignment_name` VARCHAR(255) NOT NULL, -- Assignment Name
@@ -100,6 +111,11 @@ CREATE TABLE student_scores (
     score INT NOT NULL,                        -- Score of the student
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Timestamp of record creation
 );
+
+ALTER TABLE `student_scores`
+ADD COLUMN `user_id` INT NOT NULL AFTER `id`,
+ADD CONSTRAINT `fk_student_scores_users`
+FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE CASCADE;
 
 
 -- Insert data for user types
