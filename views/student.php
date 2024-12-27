@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 //session_start();
 if ($_SESSION['user_type'] != 3) {
     header("Location: /swe_project/views/home-course.php"); 
@@ -16,6 +17,32 @@ if (is_file($sectionsFile)) {
     $sections = json_decode(file_get_contents($sectionsFile), true) ?? [];
     if (!is_array($sections)) $sections = [];
 }
+=======
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (strtolower($_SESSION['user_type']) != 'student') {
+    header("Location: /swe_project/views/Home.php"); 
+    exit();
+}
+
+include_once __DIR__ . '/../controllers/StudentController.php';
+include_once __DIR__ . '/../db/config.php'; 
+
+$course = $_GET['course'] ?? 'general';
+if (empty($course)) {
+    die("Invalid course.");
+}
+
+
+$StudentController = new StudentController($connection); 
+
+$studentId = $_SESSION['user_id'];
+
+
+$sections = $StudentController->getSections($course);
+>>>>>>> 05e937ed01a572bf03bcd649485c169a158eaeff
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +69,7 @@ if (is_file($sectionsFile)) {
     </style>
 </head>
 <body>
+<<<<<<< HEAD
     <!-- Navigation Bar -->
     <?php include 'navBar.php'; ?>
 
@@ -58,6 +86,10 @@ if (is_file($sectionsFile)) {
         </nav>
     </header>-->
 
+=======
+    <?php include 'navBar.php'; ?>
+
+>>>>>>> 05e937ed01a572bf03bcd649485c169a158eaeff
     <div class="header-courses">
         <h1>Available Sections for <?php echo htmlspecialchars($course); ?></h1>
     </div>
@@ -68,8 +100,13 @@ if (is_file($sectionsFile)) {
         <?php else: ?>
             <?php foreach ($sections as $section): ?>
                 <div class="section-container" 
+<<<<<<< HEAD
                      onclick="location.href='view_files.php?course=<?php echo urlencode($course); ?>&section=<?php echo urlencode($section); ?>';">
                     <h2><?php echo htmlspecialchars($section); ?></h2>
+=======
+                     onclick="location.href='view_files.php?course=<?php echo urlencode($course); ?>&section=<?php echo urlencode($section['section_name']); ?>';">
+                    <h2><?php echo htmlspecialchars($section['section_name']); ?></h2>
+>>>>>>> 05e937ed01a572bf03bcd649485c169a158eaeff
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>

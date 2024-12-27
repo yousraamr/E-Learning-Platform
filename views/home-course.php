@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 //session_start(); // yousra commented this line as it is already active in navBar.php
 
 $userType = $_SESSION['user_type'] ?? 3;
@@ -7,6 +8,26 @@ $userType = $_SESSION['user_type'] ?? 3;
 function getCoursePage($role) {
     return ($role == 2) ? '/swe_project/views/instructor.php' : '/swe_project/views/student.php';
 }
+=======
+require_once(__DIR__ . '/../controllers/HomeCourseController.php');
+require_once(__DIR__ . '/../db/config.php');
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$userId = $_SESSION['user_id'] ?? null;
+$userType = $_SESSION['user_type'] ?? null;
+
+if (!$userId) {
+    header("Location: register_login.php");
+    exit();
+}
+
+$controller = new HomeCourseController($connection);
+
+$courses = $controller->getCoursesForUser((int)$userId);
+>>>>>>> 05e937ed01a572bf03bcd649485c169a158eaeff
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +40,7 @@ function getCoursePage($role) {
     <link rel="stylesheet" href="../assets/css/Home.css">
 </head>
 <body>
+<<<<<<< HEAD
     <!-- Navigation Bar -->
     <?php include 'navBar.php'; ?>
 
@@ -76,11 +98,37 @@ function getCoursePage($role) {
                 <p>Misr International University<br> Established 1996</p>
             </div>
 
+=======
+    <?php include_once __DIR__ . '/navbar.php'; ?>
+
+    <section class="main-cont">
+        <div class="course-overview">
+            <?php if (!empty($courses)): ?>
+                <?php foreach ($courses as $course): ?>
+                    <a href="<?php echo $controller->getCoursePageUrl($userType, $course); ?>" class="course-card">
+                        <div class="course-thumbnail blue"></div>
+                        <h2><?php echo htmlspecialchars($course); ?></h2>
+                    </a>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>No courses available for you.</p>
+            <?php endif; ?>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../assets/images/logo.png" alt="MIU Logo"> 
+                <p>Misr International University<br> Established 1996</p>
+            </div>
+>>>>>>> 05e937ed01a572bf03bcd649485c169a158eaeff
             <div class="footer-contact">
                 <h4>Contact Us</h4>
                 <p>Phone: +20 123 456 789<br>Email: info@miu.edu.eg</p>
                 <p>Address: 123 MIU Street, Cairo, Egypt</p>
             </div>
+<<<<<<< HEAD
 
             <div class="footer-links">
                 <h4>Quick Links</h4>
@@ -100,6 +148,9 @@ function getCoursePage($role) {
             </div>
         </div>
 
+=======
+        </div>
+>>>>>>> 05e937ed01a572bf03bcd649485c169a158eaeff
         <div class="footer-bottom">
             © 2024 Misr International University - All Rights Reserved
         </div>
