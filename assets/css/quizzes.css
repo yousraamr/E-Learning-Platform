@@ -1,0 +1,266 @@
+/* Card Styling */
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding-top: 80px; /* Add padding to avoid content overlap with the fixed navbar */
+}
+
+/* Navbar Section */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure the navbar stays on top of other elements */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-links li .login {
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+}
+
+.login {
+  background-color: #8b0000;
+  color: #fff;
+}
+
+/* Dashboard Header */
+header {
+  width: 100%;
+  background-color: #002d72; /* Dark blue header */
+  padding: 20px 0; /* Padding to give the header some height */
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px; /* Add margin below the title for spacing */
+}
+.work {
+  width: 90%;
+  margin: 5% auto;
+  font-size: 1.6em;
+  background-color: rgba(128, 128, 128, 0.06);
+  padding: 20px 0; /* Padding to give the header some height */
+  display: flex;
+  justify-content: left;
+  color: rgba(71, 70, 70, 0.811);
+}
+h2 {
+  margin: 5% 5%;
+  font-size: x-large;
+  color: #0e0808;
+  font-family: Arial;
+}
+.parag {
+  color: #33333397;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.attempts-section {
+  max-width: 1600px;
+  margin: 5% auto;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.attempt-card {
+  background-color: #ffffff45;
+
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.attempt-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.attempt-table th,
+.attempt-table td {
+  padding: 10px;
+
+  text-align: left;
+}
+
+.attempt-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  color: #333;
+}
+
+.review-info,
+.attempt-info {
+  font-size: 1em;
+  color: #777;
+  margin-top: 10px;
+}
+
+.back-btn {
+  background-color: #8b0000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.back-btn:hover {
+  background-color: #b22222;
+}
+/* Footer Section */
+.footer {
+  background-color: #333; /* Dark Grey */
+  color: #fff;
+  padding: 50px 20px;
+  border-top: 5px solid #6b0000; /* MIU Gold Border */
+  font-family: "Arial", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 30px;
+}
+
+.footer-logo {
+  max-width: 20%;
+  margin-bottom: 20px;
+}
+
+.footer-logo img {
+  width: 120px;
+  margin-bottom: 15px;
+}
+
+.footer-logo p {
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.7;
+  color: #bbb;
+}
+
+.footer-contact,
+.footer-links {
+  max-width: 25%;
+  margin: 0 20px;
+}
+
+.footer-contact h4,
+.footer-links h4 {
+  color: #7b3939; /* MIU Gold */
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #7b3939;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-contact p {
+  margin: 0;
+  line-height: 1.8;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: #7b3939; /* MIU Gold */
+  text-decoration: underline;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 20%;
+  margin-top: 10px;
+}
+
+.footer-social a {
+  color: #fff;
+  margin-right: 15px;
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social a:hover {
+  transform: scale(1.2);
+  color: #6b0000; /* MIU Gold */
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  color: #bbb;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

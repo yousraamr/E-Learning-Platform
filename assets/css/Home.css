@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-links li .login {
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+}
+
+.login {
+    background-color:  #8B0000;
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    /*background-image: url('..\..\assets\images\MIU.png');*/
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.hero-buttons .btn {
+    padding: 15px 25px;
+    border-radius: 30px;
+    background-color: #8B0000; /* Burgundy color */
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.hero-buttons .btn:hover {
+    background-color: #A52A2A;
+}
+
+/* Dark overlay on the hero background */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+/* Empowerment Section */
+.empowerment-section {
+    background-color: #d4d3d3; /* Burgundy background color */
+    color:#8B0000; /* Yellow heading */
+    text-align: center;
+    padding: 50px 20px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAAAfAec0AAAAOXRFWHRTb2Z0d2FyZQBNYWNyb21lZGlhIEZpcmV3b3JrcyBMbGMuIE5vbi1Db21tZXJjaWFsIFVzZXIgU29mdHdhcmUAVZZaAAAGJUlEQVR4nO3doU0cURTH8c98KI6Wv0BHS5pHUlw+JkSO0PkmzUnVj8d0QUM0ntOhgq+MDuHKI6p3gItUYLSqfCoGzRQ6KM5odxgF1OhXnJZp/MC9r/0Wf22/PNbXakbWZm5uZk5XH9VFbX+rq2D2t7fXs2goKoerjSAKH0iCSXQhGS/kh0oGyRoSyBojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJEloSAAojkmgLIWiJ5JoCwFogmSaEsAaIuSaAtBaIJElISgAIfUlw8AAPnzzwf4PjQw2acV/NdAAAAAElFTkSuQmCC');
+    background-size: cover;
+}
+
+.empowerment-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.empowerment-section p {
+    font-size: 1.2rem;
+    color: #8B0000;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Programs Section */
+.programs-section {
+    padding: 50px 20px;
+    background-color: #f7f7f7;
+}
+
+.programs-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.program-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 20px);
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.program-card img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.program-card h3 {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #8B0000;
+}
+
+.program-card p {
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.program-card .btn {
+    background-color: #8B0000;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.program-card .btn:hover {
+    background-color: #6b0000;
+}
+
+@media (max-width: 768px) {
+    .program-card {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+/* MIU Difference Section */
+.miu-difference-section {
+padding: 60px 20px;
+background-color: #fff;
+}
+
+.miu-difference-container {
+display: flex;
+align-items: center;
+justify-content: space-between;
+max-width: 1200px;
+margin: 0 auto;
+flex-wrap: wrap;
+}
+
+.text-content {
+max-width: 50%;
+}
+
+.text-content h2 {
+font-size: 2.5rem;
+color: #8B0000;
+font-weight: bold;
+}
+
+.yellow-line {
+width: 50px;
+height: 5px;
+background-color: #F9BF3B;
+margin: 15px 0;
+border: none;
+}
+
+.text-content p {
+font-size: 1.125rem;
+line-height: 1.6;
+margin-bottom: 20px;
+}
+
+.btn {
+background-color: #8B0000;
+color: white;
+padding: 12px 25px;
+text-decoration: none;
+font-weight: bold;
+border-radius: 25px;
+display: inline-block;
+}
+
+.btn:hover {
+background-color: #6B0000;
+}
+
+.image-content {
+max-width: 45%;
+}
+
+.image-content img {
+width: 100%;
+border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Footer Section */
+.footer {
+background-color: #333; /* Dark Grey */
+color: #fff;
+padding: 50px 20px;
+border-top: 5px solid #6B0000; /* MIU Gold Border */
+font-family: 'Arial', sans-serif;
+letter-spacing: 0.5px;
+}
+
+.footer-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+max-width: 1200px;
+margin: 0 auto;
+border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+padding-bottom: 30px;
+}
+
+.footer-logo {
+max-width: 20%;
+margin-bottom: 20px;
+}
+
+.footer-logo img {
+width: 120px;
+margin-bottom: 15px;
+}
+
+.footer-logo p {
+font-size: 0.9rem;
+margin: 0;
+line-height: 1.7;
+color: #bbb;
+}
+
+.footer-contact, .footer-links {
+max-width: 25%;
+margin: 0 20px;
+}
+
+.footer-contact h4, .footer-links h4 {
+color:#7b3939; /* MIU Gold */
+font-size: 1.2rem;
+margin-bottom: 15px;
+text-transform: uppercase;
+border-bottom: 2px solid #7b3939;
+display: inline-block;
+padding-bottom: 5px;
+}
+
+.footer-contact p {
+margin: 0;
+line-height: 1.8;
+color: #ddd;
+font-size: 0.95rem;
+}
+
+.footer-links ul {
+list-style: none;
+padding: 0;
+}
+
+.footer-links ul li {
+margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+color: #fff;
+text-decoration: none;
+font-size: 0.95rem;
+transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+color: #7b3939; /* MIU Gold */
+text-decoration: underline;
+}
+
+.footer-social {
+display: flex;
+justify-content: flex-start;
+align-items: center;
+max-width: 20%;
+margin-top: 10px;
+}
+
+.footer-social a {
+color: #fff;
+margin-right: 15px;
+font-size: 1.8rem;
+text-decoration: none;
+transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social a:hover {
+transform: scale(1.2);
+color: #6B0000; /* MIU Gold */
+}
+
+.footer-bottom {
+text-align: center;
+margin-top: 30px;
+padding-top: 20px;
+color: #bbb;
+font-size: 0.85rem;
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+.footer-container {
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.footer-logo, .footer-contact, .footer-links, .footer-social {
+max-width: 100%;
+margin-bottom: 30px;
+}
+
+.footer-bottom {
+margin-top: 20px;
+}
+}
