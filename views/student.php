@@ -1,21 +1,28 @@
 <?php
-//session_start();
-if ($_SESSION['user_type'] != 3) {
-    header("Location: /swe_project/views/home-course.php"); 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (strtolower($_SESSION['user_type']) != 'student') {
+    header("Location: /swe_project/views/Home.php"); 
     exit();
 }
 
-header("Cache-Control: no-cache, must-revalidate");
+include_once __DIR__ . '/../controllers/StudentController.php';
+include_once __DIR__ . '/../db/config.php'; 
 
 $course = $_GET['course'] ?? 'general';
-$directory = __DIR__ . "/swe_project/views/uploads/$course"; 
-$sectionsFile = "$directory/sections.json";
-
-$sections = [];
-if (is_file($sectionsFile)) {
-    $sections = json_decode(file_get_contents($sectionsFile), true) ?? [];
-    if (!is_array($sections)) $sections = [];
+if (empty($course)) {
+    die("Invalid course.");
 }
+
+
+$StudentController = new StudentController($connection); 
+
+$studentId = $_SESSION['user_id'];
+
+
+$sections = $StudentController->getSections($course);
 ?>
 
 <!DOCTYPE html>
@@ -42,21 +49,7 @@ if (is_file($sectionsFile)) {
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <?php include 'navBar.php'; ?>
-
-    <!--<header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="../../assets/images/logo.png" alt="MIU Logo"> 
-            </div>
-            <ul class="nav-links">
-                <li><a href="../../home/Home.php">Home</a></li>
-                <li><a href="../course/home-course.php">My Courses</a></li> 
-                <li><a href="#">Dashboard</a></li>
-            </ul>
-        </nav>
-    </header>-->
 
     <div class="header-courses">
         <h1>Available Sections for <?php echo htmlspecialchars($course); ?></h1>
@@ -68,8 +61,8 @@ if (is_file($sectionsFile)) {
         <?php else: ?>
             <?php foreach ($sections as $section): ?>
                 <div class="section-container" 
-                     onclick="location.href='view_files.php?course=<?php echo urlencode($course); ?>&section=<?php echo urlencode($section); ?>';">
-                    <h2><?php echo htmlspecialchars($section); ?></h2>
+                     onclick="location.href='view_files.php?course=<?php echo urlencode($course); ?>&section=<?php echo urlencode($section['section_name']); ?>';">
+                    <h2><?php echo htmlspecialchars($section['section_name']); ?></h2>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
