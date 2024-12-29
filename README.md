@@ -1,6 +1,6 @@
 # E-Learning Platform
 
-A role-based e-learning platform allowing instructors to manage courses and assignments while students can enroll, access materials, and submit work.
+Welcome to MIU E-Learning management system, it is a place where University faculty, staff, and students work in a collaborative environment to create rich, engaged learning and teaching experiences; the system increases student success, active learning community. The mission is to deliver E-Learning courses to students in a professional way using developed E-Learning techniques.
 
 ## Features
 - Role-based access for admin, instructors, and students.
