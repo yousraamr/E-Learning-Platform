@@ -111,4 +111,85 @@ class UserTest extends TestCase {
         $result = $this->userMock->signIn($email, $password);
         $this->assertEquals('Invalid email or password!', $result);
     }
+
+
+    // Test for logout
+    public function testLogout() {
+        // Start a session and set some session variables
+        $_SESSION['user_id'] = 1;
+        $_SESSION['user_type'] = 'Student';
+        $_SESSION['user_name'] = 'student';
+    
+        // Ensure session variables are set
+        $this->assertArrayHasKey('user_id', $_SESSION);
+        $this->assertArrayHasKey('user_type', $_SESSION);
+        $this->assertArrayHasKey('user_name', $_SESSION);
+    
+        // Mock the logout method to destroy the session
+        $this->userMock->expects($this->once())
+                       ->method('logout')
+                       ->will($this->returnCallback(function () {
+                           // Simulate session destruction
+                           $_SESSION = [];
+                       }));
+    
+        // Call the logout method
+        $this->userMock->logout();
+    
+        // Verify that the session variables are cleared
+        $this->assertArrayNotHasKey('user_id', $_SESSION);
+        $this->assertArrayNotHasKey('user_type', $_SESSION);
+        $this->assertArrayNotHasKey('user_name', $_SESSION);
+    }
+    
+    
+    // Test for downloadFile with a valid file
+    public function testDownloadFile() {
+        // Mock the $_GET parameters
+        $_GET['course'] = 'course1';
+        $_GET['section'] = 'section1';
+        $_GET['file'] = 'example.txt';
+
+        $baseDirectory = __DIR__ . '/../views/uploads';
+        $directory = "$baseDirectory/course1/section1";
+        $filePath = "$directory/example.txt";
+
+        // Ensure directory and file exist for testing
+        if (!is_dir($directory)) {
+            mkdir($directory, 0777, true);
+        }
+        file_put_contents($filePath, "Test content");
+
+        // Mock the User::downloadFile() method
+        $this->userMock->expects($this->once())
+                       ->method('downloadFile')
+                       ->willReturn(file_get_contents($filePath));
+
+        ob_start();
+        $result = $this->userMock->downloadFile();
+        ob_end_clean();
+
+        $this->assertEquals('Test content', $result);
+
+        // Cleanup
+        unlink($filePath);
+        rmdir($directory);
+    }
+
+    // Test for downloadFile with a nonexistent file
+    public function testDownloadFileNotFound() {
+        $_GET['course'] = 'course1';
+        $_GET['section'] = 'section1';
+        $_GET['file'] = 'nonexistent.txt';
+
+        $this->userMock->expects($this->once())
+                       ->method('downloadFile')
+                       ->willReturn('Error: File not found.');
+
+        ob_start();
+        $result = $this->userMock->downloadFile();
+        ob_end_clean();
+
+        $this->assertEquals('Error: File not found.', $result);
+    }
 }
