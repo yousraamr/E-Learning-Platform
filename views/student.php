@@ -1,23 +1,4 @@
 <?php
-<<<<<<< HEAD
-//session_start();
-if ($_SESSION['user_type'] != 3) {
-    header("Location: /swe_project/views/home-course.php"); 
-    exit();
-}
-
-header("Cache-Control: no-cache, must-revalidate");
-
-$course = $_GET['course'] ?? 'general';
-$directory = __DIR__ . "/swe_project/views/uploads/$course"; 
-$sectionsFile = "$directory/sections.json";
-
-$sections = [];
-if (is_file($sectionsFile)) {
-    $sections = json_decode(file_get_contents($sectionsFile), true) ?? [];
-    if (!is_array($sections)) $sections = [];
-}
-=======
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -42,7 +23,6 @@ $studentId = $_SESSION['user_id'];
 
 
 $sections = $StudentController->getSections($course);
->>>>>>> 05e937ed01a572bf03bcd649485c169a158eaeff
 ?>
 
 <!DOCTYPE html>
@@ -69,27 +49,8 @@ $sections = $StudentController->getSections($course);
     </style>
 </head>
 <body>
-<<<<<<< HEAD
-    <!-- Navigation Bar -->
     <?php include 'navBar.php'; ?>
 
-    <!--<header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="../../assets/images/logo.png" alt="MIU Logo"> 
-            </div>
-            <ul class="nav-links">
-                <li><a href="../../home/Home.php">Home</a></li>
-                <li><a href="../course/home-course.php">My Courses</a></li> 
-                <li><a href="#">Dashboard</a></li>
-            </ul>
-        </nav>
-    </header>-->
-
-=======
-    <?php include 'navBar.php'; ?>
-
->>>>>>> 05e937ed01a572bf03bcd649485c169a158eaeff
     <div class="header-courses">
         <h1>Available Sections for <?php echo htmlspecialchars($course); ?></h1>
     </div>
@@ -100,13 +61,8 @@ $sections = $StudentController->getSections($course);
         <?php else: ?>
             <?php foreach ($sections as $section): ?>
                 <div class="section-container" 
-<<<<<<< HEAD
-                     onclick="location.href='view_files.php?course=<?php echo urlencode($course); ?>&section=<?php echo urlencode($section); ?>';">
-                    <h2><?php echo htmlspecialchars($section); ?></h2>
-=======
                      onclick="location.href='view_files.php?course=<?php echo urlencode($course); ?>&section=<?php echo urlencode($section['section_name']); ?>';">
                     <h2><?php echo htmlspecialchars($section['section_name']); ?></h2>
->>>>>>> 05e937ed01a572bf03bcd649485c169a158eaeff
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
