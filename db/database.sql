@@ -145,6 +145,14 @@ CREATE TABLE assignments (
     PRIMARY KEY (id) -- Primary Key
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `quiz_results` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `student_id` INT NOT NULL,
+    `score` DECIMAL(5, 2) NOT NULL,
+    `submission_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
 CREATE TABLE student_scores (
     id INT AUTO_INCREMENT PRIMARY KEY,         -- Unique identifier for each entry
     student_name VARCHAR(100) NOT NULL,        -- Name of the student
