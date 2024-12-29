@@ -12,20 +12,7 @@
     <!-- Navigation Bar -->
     <?php include 'navBar.php'; ?>
 
-    <!--<header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="..\..\assets\images\logo.png" alt="MIU Logo">
-            </div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">My courses</a></li>
-                <li><a href="../../views/dashboard/dashboard.html">Dashboard</a></li>
-                <li><a href="..\..\views\home\Admin.php">Admin</a></li>
-                <li><a href="..\..\views\register_login\register_login.php" class="login">Login</a></li>
-            </ul>
-        </nav>
-    </header>-->
+    
     
     <!-- Hero Section -->
     <section class="hero" >
