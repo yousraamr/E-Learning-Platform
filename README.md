@@ -22,8 +22,8 @@ A role-based e-learning platform allowing instructors to manage courses and assi
 ## Contact Us
 Need help or have a question? Feel free to reach out to us!
 
-- **[Yousra Amr](https://github.com/yousraamr)** - [Contribution Details]
-- **[Mariam Jan](https://github.com/MariamJan)** - [Contribution Details]
-- **[Hagar Ibrahim](https://github.com/Hagarib)** - [Contribution Details]
-- **[Malak Ewaiss](https://github.com/MalakEwaisss)** - [Contribution Details]
+- **[Yousra Amr](https://github.com/yousraamr)** 
+- **[Mariam Jan](https://github.com/MariamJan)** 
+- **[Hagar Ibrahim](https://github.com/Hagarib)** 
+- **[Malak Ewaiss](https://github.com/MalakEwaisss)** 
 
