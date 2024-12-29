@@ -17,3 +17,13 @@ A role-based e-learning platform allowing instructors to manage courses and assi
 1. Clone the repository and navigate to the directory.
 2. Import the database file into MySQL.
 3. Configure database settings in the backend.
+
+
+## Contact Us
+Need help or have a question? Feel free to reach out to us!
+
+- **[Yousra Amr](https://github.com/yousraamr)** - [Contribution Details]
+- **[Mariam Jan](https://github.com/MariamJan)** - [Contribution Details]
+- **[Hagar Ibrahim](https://github.com/Hagarib)** - [Contribution Details]
+- **[Malak Ewaiss](https://github.com/MalakEwaisss)** - [Contribution Details]
+
