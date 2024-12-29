@@ -85,38 +85,24 @@ class Student extends User
     }
 
     // Method to submit the quiz, calculate score and save the results
-    public function submitQuiz($answers)
+   public function submitQuizResults($score)
     {
-        // Fetch the quiz questions from the database
-        $quiz_questions = $this->getQuizQuestions();
-    
-        // Initialize variables for score calculation
-        $correctAnswers = 0;
-        $totalQuestions = count($quiz_questions);
-    
-        // Loop through the quiz questions and check the answers
-        foreach ($quiz_questions as $index => $question) {
-            // Check if the student's answer matches the correct option
-            if (isset($answers["q$index"]) && $answers["q$index"] == $question['correct_option']) {
-                $correctAnswers++;
-            }
+        // Assuming the connection is already established in $this->connection
+        $stmt = $this->connection->prepare("INSERT INTO quiz_results (student_id, score, submission_time) VALUES (?, ?, CURRENT_TIMESTAMP)");
+        
+        if ($stmt === false) {
+            // Error preparing the statement
+            die("Error preparing the SQL query: " . $this->connection->error);
         }
     
-        // Calculate the score
-        $score = ($correctAnswers / $totalQuestions) * 100;
-    
-        // Save the score to the database
-        $stmt = $this->connection->prepare("INSERT INTO quiz_results (student_id, score, submission_time) VALUES (?, ?, CURRENT_TIMESTAMP)");
         $stmt->bind_param("id", $this->studentId, $score);
-        
-        // Log the query and parameters for debugging
-        echo "Query: " . $stmt->get_stmt() . "\n";
-        echo "Student ID: " . $this->studentId . ", Score: " . $score . "\n";
-        
-        $stmt->execute();
     
-        // Return the result in "correct/total" format
-        return "$correctAnswers/$totalQuestions";  
+        if ($stmt->execute()) {
+            return true; // Return true if execution is successful
+        } else {
+            // Error executing the query
+            die("Error executing the SQL query: " . $stmt->error);
+        }
     }
     
     // Fetch assignments from the database
