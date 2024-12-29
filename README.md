@@ -22,8 +22,9 @@ A role-based e-learning platform allowing instructors to manage courses and assi
 ## Contact Us
 Need help or have a question? Feel free to reach out to us!
 
-- **[Yousra Amr](https://github.com/yousraamr)** 
-- **[Mariam Jan](https://github.com/MariamJan)** 
-- **[Hagar Ibrahim](https://github.com/Hagarib)** 
-- **[Malak Ewaiss](https://github.com/MalakEwaisss)** 
+[![Yousra Amr](https://img.shields.io/badge/yousra%20amr-Contact-blue)](mailto:yousraamr000@gmail.com)
+[![Mariam Jan](https://img.shields.io/badge/Mariam%20Jan-Contact-blue)](mailto:mariam2206056@miuegypt.edu.eg)
+[![Hagar Ibrahim](https://img.shields.io/badge/Hagar%20ib-Contact-blue)](mailto:Hagar2204577@miuegypt.edu.eg)
+[![Malak Ewais](https://img.shields.io/badge/Malak%20Ewaisss-Contact-blue)](mailto:malak2202892@miuegypt.edu.eg)
+
 
