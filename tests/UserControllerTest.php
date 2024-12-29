@@ -77,6 +77,27 @@ class UserControllerTest extends TestCase
         $result = $controller->signIn($requestMethod, $postData);
         $this->assertEquals('Invalid email or password!', $result);
     }
+
+    public function testLogout() {
+        $mockUser = $this->createMock(User::class);
     
+        // Expect the logout method to be called once
+        $mockUser->expects($this->once())
+                 ->method('logout')
+                 ->will($this->returnCallback(function () {
+                     session_destroy();
+                 }));
+    
+        $controller = new UserController($mockUser);
+    
+        // Simulate POST request for logout
+        $requestMethod = 'POST';
+        $postData = ['logout' => true];
+    
+        $result = $controller->logout($requestMethod, $postData);
+    
+        // Assert that the response is as expected
+        $this->assertEquals("Logged out", $result);
+    }
 }
 ?>
