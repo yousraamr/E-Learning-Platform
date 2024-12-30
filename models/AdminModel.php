@@ -8,9 +8,14 @@ class Admin extends User
 
     public function __construct($connection = null, $username = null, $email = null, $password = null, $usertype = 'admin', $courses = [])
     {
-        if ($connection === null) {
-            $this->connection = mysqli_connect($GLOBALS['servername'], $GLOBALS['username'], $GLOBALS['password'], $GLOBALS['database']);
+        // Use the global variables for database connection
+        global $servername, $username, $password, $database;
 
+        if ($connection === null) {
+            // Establish the connection using the global variables
+            $this->connection = mysqli_connect($servername, $username, $password, $database);
+
+            // Check if the connection was successful
             if (!$this->connection) {
                 die('Database connection failed: ' . mysqli_connect_error());
             }
