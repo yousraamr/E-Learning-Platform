@@ -1,7 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\MockObject\MockObject;
-
 require_once __DIR__ . '/../models/AdminModel.php';
 require_once __DIR__ . '/../controllers/AdminController.php';
 require_once __DIR__ . '/../vendor/autoload.php';
